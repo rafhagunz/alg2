@@ -1,0 +1,111 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Conta
+{    char nome[32];
+    float limite;
+    int cpf;
+    float saldo;
+    float saldoG;    } Conta;
+
+    
+    /* variables */
+    int c;
+    float valor;    
+    int opcao;
+    int aux;
+    /* end of variables*/ 
+
+int main ()
+{
+    struct Conta DataBank[2];
+    
+    for (c = 0; c < 10; c++)
+    {
+        DataBank[c].limite = 0;
+        DataBank[c].saldo = 0;
+        DataBank[c].saldoG = 0;
+        valor = 0;
+        opcao = 0;
+        aux = 0;
+    }    
+        
+    
+    for (c = 0; c < 2; c++) 
+    {    
+    
+      printf("Digite seu Nome: ");
+      scanf("%s", &DataBank[c].nome);
+      
+      printf("Digite seu CPF: ");
+      scanf("%d", &DataBank[c].cpf);
+      
+      printf("Digite seu limite: ");
+      scanf("%f", &DataBank[c].limite);
+      
+      printf("Digite o valor do Seu deposito Inicial: ");
+      scanf("%f", &valor);
+  
+          DataBank[c].saldoG = DataBank[c].saldo + DataBank[c].limite + valor;
+          DataBank[c].saldo = DataBank[c].saldo + valor;
+      
+      printf("Saldo em Conta: %f, Saldo Limite: %f, Saldo Total: %f \n \n",(DataBank[c].saldo),(DataBank[c].limite),(DataBank[c].saldoG));     
+      }
+      
+        printf("Digite um CPF : ");
+        scanf("%d", &aux);     
+              for (c = 0; c < 2; c++)
+              {
+                if (DataBank[c].cpf == aux)
+                {    
+                    printf("Digite uma opcao (0)Sair, (1)Deposito, (2)Saque  \n");
+                    scanf("%d",&opcao);
+                    
+                    switch (opcao)
+                    {
+                        
+                    case 1:
+
+                       printf("Digite um Valor para Deposito: ");
+                       scanf("%f",&valor);
+                       DataBank[c].saldo = DataBank[c].saldo + valor;
+                       DataBank[c].saldoG = (DataBank[c].saldo + DataBank[c].limite);
+                       printf("Valor depositado com sucesso!! \n Saldo Atual: 'R$%f' \n Saldo Limite: 'R$%f' \n Saldo em Conta: 'R$%f'",DataBank[c].saldoG,DataBank[c].limite,DataBank[c].saldo);
+                                
+                    break;
+                    case 2:
+                        
+                          printf("Saldo Disponivel: 'R$ %f' \n Digite um Valor para saque:",(DataBank[c].saldoG));
+                          scanf("%f",&valor);
+                          
+                          if (valor <= DataBank[c].saldo+DataBank[c].limite) {
+                              
+                              DataBank[c].saldo = DataBank[c].saldo - valor;
+                              printf("Saque Realizado com Sucesso \n");
+                          }
+                          else 
+                          { 
+                              printf("Saldo Insuficiente.");
+                          }
+
+                          
+                    break;
+                    
+                    case 0:
+                    
+                    break;
+                    
+                    }
+                    
+                                    
+                    aux = NULL;
+                    break;
+                }
+                
+
+              
+              }
+  
+      system ("pause");
+    return 0;
+}
