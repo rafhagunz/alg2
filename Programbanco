@@ -81,6 +81,8 @@ int main ()
                           if (valor <= DataBank[c].saldo+DataBank[c].limite) {
                               
                               DataBank[c].saldo = DataBank[c].saldo - valor;
+                              DataBank[c].saldoG = DataBank[c].saldo + DataBank[c].limite;
+                              printf("Saldo Disponivel: 'R$ %f' \n",(DataBank[c].saldoG));
                               printf("Saque Realizado com Sucesso \n");
                           }
                           else 
