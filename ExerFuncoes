@@ -1,0 +1,183 @@
+/**************1***********/ 
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+int classifica(int x){
+	if(x>=1){
+		return 1;
+	}
+	if (x<=-1){
+		return 0;
+	}
+}
+
+
+int main(){
+	
+	int numero;
+	printf("Digite um numero : ");
+	scanf("%d",&numero);
+	
+	if (classifica(numero) == 1){
+		printf("Numero Positivo!\n");
+	} else {
+		printf("Numero Negativo!\n");
+	}
+	
+	system("pause");
+	return 0;
+}
+
+
+
+/*****************2******************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+/* Crie uma função que receba três valores, 'a', 'b' e 'c', que são os coeficientes de uma
+equação do segundo grau e retorne o valor do delta, que é dado por 'b² - 4ac'. */
+
+float delta(float a,float b,float c){
+	return ((b*b) - 4*a*c);
+}
+
+
+int main(){
+	
+	int a,b,c;
+	printf("Digite os valor e verif o delta : ");
+	scanf("%d",&a);
+	scanf("%d",&b);
+	scanf("%d",&c);
+	
+	printf("~Delta ~ '%.2f'",delta(a,b,c));
+		
+	system("pause");
+	return 0;
+}
+
+
+/**********************3**********************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <stdbool.h>
+
+/* Faça uma função que recebe por parâmetro um valor inteiro e positivo e retorna o valor
+lógico Verdadeiro caso o valor seja primo e Falso em caso contrário. */
+
+bool primo(int num){	
+	
+	int c,result = 0;
+		for(c = 1; c <= num; c++){
+			if(num % c == 0 ){
+			result++;
+			}
+	}
+	
+	if (result == 2){
+		printf("O número '%d' é Primo!\n",num);
+	} else {
+		printf("O número '%d' não é Primo\n!",num);
+	}
+	
+	
+}
+
+
+int main(){
+	
+	setlocale(LC_ALL, "");
+	
+	int num;
+	do
+	
+	{
+	printf("Digite um valor positivo inteiro : ");
+	scanf("%d",&num);
+	}
+	
+	while (num < 0);
+	primo(num);
+	
+	system("pause");
+	return 0;
+}
+
+/*********************4******************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+
+
+bool posORneg(int num){	
+
+	if(num >= 0){
+		return true;
+	} else {
+		return false;
+	}	
+}
+
+
+int main(){
+	
+
+	int num;
+	
+	scanf("%d",&num);
+	
+	if(posORneg(num) == true){
+	
+		printf("TRUE - POSITIVO\n");
+	
+	} else {
+	
+		printf("FALSE - NEGATIVO\n");
+	
+	}
+	
+	system("pause");
+	return 0;
+}
+
+
+/********************5******************/
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+
+
+void tabuada(int num){	
+		
+		
+		printf("********TABUADA*********\n");
+		int c=0;
+		for (c=1; c<=num; c++){
+			printf("\t%d X %d = %d\n",num,c,c*num);
+		}
+		printf("*************************\n");
+		return;	
+}
+
+
+int main(){
+	
+	int num=0;
+	printf("Digite um numero : ");
+	scanf("%d",&num);
+	tabuada(num);
+
+	
+	system("pause");
+	return 0;
+}
